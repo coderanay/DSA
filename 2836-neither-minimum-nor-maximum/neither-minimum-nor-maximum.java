@@ -14,7 +14,7 @@ class Solution {
             if(nums[i] != min && nums[i] != max) 
             {
                 count = nums[i];
-                break;
+                // break;
             }
         }
         return count != -1 ? count : -1;
