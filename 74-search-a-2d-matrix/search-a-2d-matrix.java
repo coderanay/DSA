@@ -4,15 +4,12 @@ class Solution {
         int col=matrix[0].length;
         int top=0;
         int right=col-1;
-        for(int i=0;i<row;i++)
+        while(top< row && right>=0)
         {
-            for(int j=0;j<col;j++)
-            {
-                int ele = matrix[i][j];
+            int ele = matrix[top][right];
                 if(ele == target) return true;
-                else if(ele >= target) top++;
+                else if(ele < target) top++;
                 else right--;
-            }
         }
         return false;
     }
