@@ -1,20 +1,15 @@
 class Solution {
     public int maxSum(int[] nums) {
-        int sum=0;
         Set<Integer> set=new HashSet<>();
-        boolean neg=true;
-        int max=Integer.MIN_VALUE;
-        for(int n: nums)
+        int n = nums.length;
+        int max = Integer.MIN_VALUE;
+        int sum=0;
+        for(int i=0;i<n;i++)
         {
-            if(n >= 0) neg=false;
-            if(n> max) max = n;
+            if(nums[i] > 0) set.add(nums[i]);
+            else max = Math.max(max,nums[i]);
         }
-        if(neg) return max;
-        for(int i: nums) set.add(i);
-        for(int i: set) 
-        {
-            if(i>0) sum += i;
-        }
-        return sum;
+        for(int i: set) sum += i;
+        return sum == 0 ? max : sum;
     }
 }
