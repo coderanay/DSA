@@ -1,25 +1,25 @@
 class Solution {
     public boolean strongPasswordCheckerII(String password) {
-        boolean low=false;
-        boolean up=false;
-        boolean digit=false;
-        boolean sc=false;
-        boolean st=true;
-        int len=password.length();
-        if(len<8) return false;
-        for(int i=0;i<len;i++){
-            char c=password.charAt(i);
-            if((int)c>96 && (int)c<123) low=true;
-            if((int)c>64 && (int)c<91) up=true;
-            if(c>='0' && c<='9') digit=true;
-            if(i<len-1 ){
-                char d=password.charAt(i+1);
-                if(c==d) st=false;
-            }
-            if("!@#$%^&*()-+".indexOf(c)!=-1)sc=true;            
+        int n = password.length();
+        if(n < 8) return false;
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        boolean hasSpecial = false;
+        boolean hasDigit = false;
+        for(char c: password.toCharArray())
+        {
+            if(Character.isUpperCase(c)) hasUpper = true;
+            else if(Character.isLowerCase(c)) hasLower = true;
+            else if(Character.isLetterOrDigit(c)) hasDigit = true;
+            else if(!Character.isLetterOrDigit(c)) hasSpecial = true;
         }
-
-      if(sc&& up&& low && st&& digit) return true;
+        for(int i=0;i<n-1;i++)
+        {
+            char c = password.charAt(i);
+            char d = password.charAt(i+1);
+            if(c == d) return false;
+        }
+        if(hasUpper && hasLower && hasSpecial && hasDigit) return true;
         return false;
     }
 }
