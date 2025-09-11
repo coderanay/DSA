@@ -14,7 +14,7 @@ class Solution {
         while(start < end)
         {
             while(start < end && !isVowel(arr[start])) start++;
-            while(start < end && !isVowel(arr[end])) end--;
+            while( start < end && !isVowel(arr[end])) end--;
             if(start < end)
             {
                 char temp = arr[start];
