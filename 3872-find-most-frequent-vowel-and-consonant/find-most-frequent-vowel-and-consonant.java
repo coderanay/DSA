@@ -14,7 +14,6 @@ class Solution {
                 maxConsonantFreq = Math.max(maxConsonantFreq, count);
             }
         }
-
         return maxVowelFreq + maxConsonantFreq;
     }
 }
