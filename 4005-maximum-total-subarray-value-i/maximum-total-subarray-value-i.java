@@ -8,7 +8,7 @@ class Solution {
             min = Math.min(min,nums[i]);
             max = Math.max(max,nums[i]);
         }
-        long ans = Math.max(Math.abs(max-min),Math.abs(min-max));
+        long ans =Math.abs(max-min);
         return ans*k;
     }
 }
