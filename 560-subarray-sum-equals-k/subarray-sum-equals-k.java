@@ -5,7 +5,11 @@ class Solution {
         map.put(0, 1);  
         for (int num : nums) {
             sum += num;
-            ans += map.getOrDefault(sum - k, 0);
+            if(map.containsKey(sum - k))
+            {
+                ans += map.get(sum - k);
+            }
+            // ans += map.getOrDefault(sum - k, 0);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return ans;
