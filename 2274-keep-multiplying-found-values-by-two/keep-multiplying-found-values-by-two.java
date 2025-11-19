@@ -1,14 +1,16 @@
 class Solution {
     public int findFinalValue(int[] nums, int original) {
-        int copy = original;
-        List<Integer> ls=new ArrayList<>();
-        for(int i: nums) ls.add(i);
-        for(int i=0;i<ls.size();i++)
+        boolean found = true;
+        while(found)
         {
-            if(ls.contains(original))
+            found = false;
+            for(int x: nums)
             {
-                System.out.println(original);
-                original = original * 2;
+                if(x == original) 
+                {
+                    original *= 2;
+                    found = true;
+                }
             }
         }
         return original;
