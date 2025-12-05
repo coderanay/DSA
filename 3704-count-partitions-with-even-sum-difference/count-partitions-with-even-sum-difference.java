@@ -14,8 +14,7 @@ class Solution {
         {
             suff[i] = suff[i+1] + nums[i];
         }
-
-        for(int i=0,j=0;i<n && j<n-1;i++,j++)
+        for(int i=0;i<n-1;i++)
         {
             int diff = Math.abs(pre[i] - suff[i+1]);
             if(diff % 2 == 0) part++;
