@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         if (n < 4) return false;
 
-       for(int p =1;p<n-2;p++)
+       for(int p=1;p<n-2;p++)
        {
         for(int q=p+1;q<n-1;q++)
         {
