@@ -12,23 +12,29 @@ class Solution {
         map.put('9', "wxyz");
     }
 
-    public void solve(String digits, int i, StringBuilder sb, List<String> result) {
-        if (i >= digits.length()) {
-            if (sb.length() > 0) result.add(sb.toString());
+    public void fun(String digits,int idx, int n, List<String> res, StringBuilder sb)
+    {
+        if(idx == n)
+        {
+            res.add(sb.toString());
             return;
         }
-        char currentChar = digits.charAt(i);
-        String value = map.get(currentChar);
-        for (char ch : value.toCharArray()) {
-            sb.append(ch);
-            solve(digits, i + 1, sb, result);
-            sb.deleteCharAt(sb.length() - 1); 
+
+        String choice = map.get(digits.charAt(idx));
+        for(int i=0;i<choice.length();i++)
+        {
+            sb.append(choice.charAt(i));
+            fun(digits,idx+1,n,res,sb);
+            sb.deleteCharAt(sb.length()-1);
         }
+        return;
     }
 
     public List<String> letterCombinations(String digits) {
-        List<String> result = new ArrayList<>();
-        solve(digits, 0, new StringBuilder(), result);
-        return result;
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        int n = digits.length();
+        fun(digits,0,n,res,sb);
+        return res;
     }
 }
