@@ -1,24 +1,25 @@
 class Solution {
     public int bitwiseComplement(int n) {
-        if(n == 0) return 1;
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
+        if(n == 0) 
+        {
+            return 1;
+        }
+        StringBuilder sb=new StringBuilder();
         while(n > 0)
         {
-            int bit = n % 2;
-            sb.append(bit);
+            int digit = n % 2;
+            sb.append(digit);
             n /= 2;
         }
-
         sb = sb.reverse();
-        for(int i=0;i<sb.length();i++)
+        char[] arr = sb.toString().toCharArray();
+        for(int i=0;i<arr.length;i++)
         {
-            if(sb.charAt(i) == '1')
-            {
-                sb2.append('0');
-            } else sb2.append('1');
+            if(arr[i] == '1') arr[i] = '0';
+            else if(arr[i] == '0') arr[i] = '1';
         }
-        int number = Integer.parseInt(sb2.toString(),2);
-        return number;
+        String binary = new String(arr);
+        int ans = Integer.parseInt(binary,2);
+        return ans;
     }
 }
