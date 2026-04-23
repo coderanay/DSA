@@ -1,12 +1,9 @@
-import java.util.*;
-
 class Solution {
     public long[] distance(int[] nums) {
         int n = nums.length;
         long[] res = new long[n];
         Map<Integer, List<Integer>> map = new HashMap<>();
         
-        // Step 1: Group indices by value
         for (int i = 0; i < n; i++) {
             map.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
         }
@@ -26,7 +23,6 @@ class Solution {
                 res[idx] = leftSum + rightSum;
             }
         }
-        
         return res;
     }
 }
