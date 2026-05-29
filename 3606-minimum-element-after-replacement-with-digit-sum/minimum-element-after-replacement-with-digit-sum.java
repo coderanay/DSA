@@ -12,15 +12,11 @@ class Solution {
     }
     public int minElement(int[] nums) {
         int n = nums.length;
+        int min = nums[0];
         for(int i=0;i<n;i++)
         {
             int sum = sumOfDigits(nums[i]);
             nums[i] = sum;
-        }
-
-        int min = nums[0];
-        for(int i=0;i<n;i++)
-        {
             if(nums[i] < min)
             {
                 min = nums[i];
