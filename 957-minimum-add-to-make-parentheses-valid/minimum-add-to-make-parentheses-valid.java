@@ -5,6 +5,7 @@ class Solution {
         for(int i=0;i<n;i++)
         {
             if(s.charAt(i) == ')')
+            
             {
                 if(st.size()>0 && st.peek() == '(') st.pop();
                 else st.push(s.charAt(i));
